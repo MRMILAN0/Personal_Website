@@ -12,11 +12,11 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f7;
-            opacity: 0; /* Initially hidden */
-            transition: opacity 1s ease-in-out; /* Smooth fade-in */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
         body.loaded {
-            opacity: 1; /* Fully visible when the page is loaded */
+            opacity: 1;
         }
         h1, h2, p {
             margin: 0;
@@ -30,85 +30,72 @@
         a:hover {
             color: #0056b3;
         }
+
         /* Navigation Bar */
         nav {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             background: white;
             border-bottom: 1px solid #e5e5e5;
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 10px 0;
+            padding: 10px 20px;
         }
         nav a {
-            margin: 0 20px;
+            margin: 10px 15px;
             font-size: 1rem;
             color: #333;
         }
         nav a:hover {
             color: #0071e3;
         }
+
         /* Parallax Section */
         .parallax {
             background-size: cover;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh;
-            position: relative;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             padding: 20px;
-            transition: transform 0.2s ease-out; /* Smooth transition */
         }
-        .parallax .content {
+        .content {
             text-align: center;
-            z-index: 2;
-            max-width: 800px;  /* Set max width for readability */
+            max-width: 800px;
             padding: 20px;
-            background: rgba(31, 29, 29, 0.6); /* Slightly darkened background for better contrast */
+            background: rgba(31, 29, 29, 0.6);
             border-radius: 10px;
         }
-        .parallax .contentss {
+        .contentss {
             text-align: center;
-            z-index: 2;
-            max-width: 800px;  /* Set max width for readability */
+            max-width: 800px;
             padding: 20px;
-            background: rgba(165, 162, 162, 0.6); /* Slightly darkened background for better contrast */
+            background: rgba(165, 162, 162, 0.6);
             border-radius: 10px;
-        }
-        .parallax h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        .parallax p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
         }
 
-        /* Cards for Skills List */
+        /* Skills List */
         .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
             padding: 0;
-            list-style-type: none;
+            list-style: none;
+            margin-top: 20px;
         }
 
-        .skills-list .skill-card {
+        .skill-card {
             background: #0071e3;
             color: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 12px;
-            width: 150px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -116,98 +103,31 @@
             animation: fadeInUp 1s ease-in-out forwards;
         }
 
-        .skills-list .skill-card:hover {
+        .skill-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            background: #0056b3; /* Darker blue on hover */
-        }
-
-        .skills-list .skill-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            animation: fadeInUp 1.2s ease-in-out forwards;
-        }
-
-        .skills-list .skill-card p {
-            font-size: 1rem;
-            margin-bottom: 0;
-            animation: fadeInUp 1.4s ease-in-out forwards;
+            background: #0056b3;
         }
 
         /* Background images for projects */
-        .project1 {
-            background-image: url('Photo_Thesis.png');
-            width: 100%;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-            animation-delay: 0.5s;
-        }
-        .project2 {
-            background-image: url('Photo_TDP.jpg');
-            width: 100%;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-            animation-delay: 0.5s;
-        }
-        .project3 {
-            background-image: url('Photo_NOAA.jpg');
-            width: 100%;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-            animation-delay: 0.5s;
-        }
-        .project4 {
-            background-image: url('Photo_Junkiri.jpg');
-            width: 100%;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-            animation-delay: 0.5s;
-        }
-        .project5 {
-            background-image: url('robotics-project.jpg');
-        }
-        .project6 {
-            background-image: url('solar-project.jpg');
-        }
+        .project1 { background-image: url('Photo_Thesis.png'); }
+        .project2 { background-image: url('Photo_TDP.jpg'); }
+        .project3 { background-image: url('Photo_NOAA.jpg'); }
+        .project4 { background-image: url('Photo_Junkiri.jpg'); }
+        .project5 { background-image: url('robotics-project.jpg'); }
+        .project6 { background-image: url('solar-project.jpg'); }
 
         /* Keyframe Animations */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Section titles with animations */
-        h2 {
-            animation: fadeInUp 1s ease-in-out forwards;
-        }
-
-        p, ul {
-            animation: fadeInUp 1.5s ease-in-out forwards;
-        }
-
-        .parallax ul li {
-            animation: fadeInUp 2s ease-in-out forwards;
-        }
-
-        .parallax h2 {
-            animation: fadeInUp 1.5s ease-in-out forwards;
-        }
-
+        /* Footer */
         footer {
             background: #333;
             color: white;
@@ -215,76 +135,70 @@
             padding: 20px;
             margin-top: 20px;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll;
+                min-height: 80vh;
+            }
+            .content, .contentss {
+                max-width: 90%;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body class="loaded">
-    <!-- Navigation Bar -->
     <nav>
         <a href="index.html">Home</a>
-        <!-- <a href="about.html">About</a> -->
         <a href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Parallax Sections for Projects -->
     <section class="parallax project1">
         <div class="content">
             <h2>Master Thesis:</h2>
-            <h2>Thermal Analysis of Electromagnetic Docking and Undocking System for 3U CubeSats in Low Earth Orbit</h2>
+            <h2>Thermal Analysis of Electromagnetic Docking and Undocking System for 3U CubeSats</h2>
             <p><em>Julius-Maximilians-Universität Würzburg, Germany</em> | <strong>2024</strong></p>
-            <p>This Master Thesis focused on evaluating and optimizing the thermal performance of the TAMARIW CubeSat docking module to ensure reliable operation in space. Key outcomes include:</p>
+            <p>This Master Thesis focused on optimizing the thermal performance of the TAMARIW CubeSat docking module.</p>
             <ul class="skills-list">
-                <li class="skill-card">
-                    <h3>Thermal Simulation</h3>
-                    <p>Conducted under sun-synchronous orbital conditions to evaluate temperature profiles.</p>
-                </li>
-                <li class="skill-card">
-                    <h3>System Design</h3>
-                    <p>Redesigned docking panel cover with heat sinks and selected high-performance TIM.</p>
-                </li>
-                <li class="skill-card">
-                    <h3>Component Testing</h3>
-                    <p>Verified Raspberry Pi camera operability at extreme cold temperatures.</p>
-                </li>
-                <li class="skill-card">
-                    <h3>Subsystem Analysis</h3>
-                    <p>Identified thermal issues and ensured compliance with operational ranges.</p>
-                </li>
-                <li class="skill-card">
-                    <h3>Recommendations</h3>
-                    <p>Suggested additional subsystems for future simulations and thermal vacuum tests.</p>
-                </li>
+                <li class="skill-card"><h3>Thermal Simulation</h3><p>Evaluated temperature profiles.</p></li>
+                <li class="skill-card"><h3>System Design</h3><p>Redesigned docking panel with heat sinks.</p></li>
+                <li class="skill-card"><h3>Testing</h3><p>Verified operability at extreme temperatures.</p></li>
             </ul>
-            <p>This work provides valuable insights into designing effective thermal control systems for CubeSat missions.</p>
         </div>
     </section>
 
     <section class="parallax project2">
         <div class="contentss">
-            <h2>Design and Development of Controlled Docking Mechanism Using Electromagnets for 3U CubeSat</h2>
+            <h2>Controlled Docking Mechanism Using Electromagnets for CubeSats</h2>
             <p><em>Julius-Maximilians-Universität Würzburg, Germany</em> | <strong>2023</strong></p>
-            <p>This project involved designing a controlled docking mechanism for CubeSats. I managed the design and prototyping phases, including:</p>
+            <p>Developed and tested an electromagnet-based docking system.</p>
             <ul class="skills-list">
-                <li class="skill-card">
-                    <h3>System Design</h3>
-                    <p>Designed the overall system and integrated electromagnets for precise docking.</p>
-                </li>
-                <li class="skill-card">
-                    <h3>Prototyping</h3>
-                    <p>Built CubeSat prototypes and conducted operational testing in simulated environments.</p>
-                </li>
-                <li class="skill-card">
-                    <h3>Web Development</h3>
-                    <p>Created a user-friendly web-based Ground Station for control and telemetry.</p>
-                </li>
-                <li class="skill-card">
-                    <h3>Simulation</h3>
-                    <p>Performed simulations to validate docking behavior under various conditions.</p>
-                </li>
+                <li class="skill-card"><h3>System Design</h3><p>Integrated electromagnets for precise docking.</p></li>
+                <li class="skill-card"><h3>Prototyping</h3><p>Built and tested CubeSat prototypes.</p></li>
+                <li class="skill-card"><h3>Web Development</h3><p>Designed a Ground Station interface.</p></li>
             </ul>
         </div>
     </section>
+    
     <section class="parallax project3">
         <div class="content">
             <h2>Signal Reception and APT Image Acquisition from NOAA Weather Satellites using a V-dipole Antenna</h2>
@@ -328,30 +242,11 @@
             </ul>
         </div>
     </section>
-
-    <!-- Add other parallax sections here... -->
-
     <footer>
         <p>&copy; 2025 Milan Pathak. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Function to handle the parallax zoom effect on images
-        function handleParallax() {
-            const sections = document.querySelectorAll('.parallax');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                const scrollPosition = window.scrollY;
-                const offset = rect.top - window.innerHeight;
-                const zoomFactor = 1 + Math.max(0, (scrollPosition - offset) / 1000); // Control zoom sensitivity
-                section.style.backgroundSize = `${100 + zoomFactor * 20}%`; // Zoom the background image
-            });
-        }
-
-        // Add scroll event listener
-        window.addEventListener('scroll', handleParallax);
-
-        // Ensure body fades in after the content has loaded
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
         });
